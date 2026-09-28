@@ -1,5 +1,5 @@
-import { accountsAvailable } from './accounts.ts'
-import { billingNotice, checkoutAvailable } from './billing.ts'
+const phoneHref = 'tel:+14154633415'
+const phoneLabel = '415-463-3415'
 
 function pageKind(pathname: string) {
   const path = pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/'
@@ -11,15 +11,32 @@ function pageKind(pathname: string) {
 
 export function App() {
   const page = pageKind(window.location.pathname)
-  if (page === 'returned') return <ReturnedPage />
-  if (page === 'sign-in') return <AccountPage mode="sign-in" />
-  if (page === 'sign-up') return <AccountPage mode="sign-up" />
-  return <PlansPage />
+  document.title = 'Walter'
+  const screen = page === 'returned' ? <ReturnedPage /> : page === 'sign-in' || page === 'sign-up' ? <CallPage /> : <PlansPage />
+  return (
+    <>
+      {screen}
+      <CompanyFooter />
+    </>
+  )
+}
+
+function CompanyFooter() {
+  return (
+    <footer className="company-footer">
+      <p className="company-name">Professional AI Agents LLC</p>
+      <p>© 2026 Professional AI Agents LLC. All rights reserved.</p>
+      <p>This page and its images are copyrighted by Professional AI Agents LLC.</p>
+      <p className="company-links">
+        <a href="https://www.professionalaiagents.com/">professionalaiagents.com</a>
+        <a href="mailto:sales@professionalaiagents.com">sales@professionalaiagents.com</a>
+        <span>25 1st Ave SW, Watertown, SD 57201</span>
+      </p>
+    </footer>
+  )
 }
 
 function PlansPage() {
-  const notice = billingNotice()
-
   return (
     <main className="folio-page">
       <section className="folio">
@@ -27,40 +44,28 @@ function PlansPage() {
           <span>WALTER</span>
           <a href="/">← Back to Walter</a>
         </header>
-        <h1>Choose your Walter plan.</h1>
-        <p>Monthly or annual—choose the pace that suits you.</p>
-        {notice ? <p role="alert">{notice}</p> : null}
+        <h1>Monthly or annual.</h1>
+        <p>Call Walter and ask him to schedule a meeting. You can choose the pace that suits you when you talk.</p>
         <div className="plans">
           <article className="plan">
             <h2>Monthly</h2>
-            <p>A recurring monthly plan.</p>
-            <button className="walter-action primary" type="button" disabled>
-              Checkout coming soon
-            </button>
+            <p>Walter, month by month.</p>
+            <a className="walter-action primary" href={phoneHref}>
+              Call {phoneLabel}
+            </a>
           </article>
           <article className="plan">
             <h2>Annual</h2>
-            <p>A recurring annual plan.</p>
-            <button className="walter-action primary" type="button" disabled>
-              Checkout coming soon
-            </button>
+            <p>Walter, for the year.</p>
+            <a className="walter-action primary" href={phoneHref}>
+              Call {phoneLabel}
+            </a>
           </article>
         </div>
-        {accountsAvailable ? (
-          <a className="walter-action secondary" href="/sign-up">
-            Create an account (optional)
-          </a>
-        ) : null}
         <p className="note">
-          {checkoutAvailable
-            ? 'Checkout is ready.'
-            : 'Checkout is being prepared. These plan choices cannot charge you yet.'}
-        </p>
-        <p className="note">
-          The calendar-connection and Ready screens are design previews, not an active scheduling service.
-        </p>
-        <p className="note">
-          <a href="/sign-in">Account access</a> is not available in this static build.
+          <a href={phoneHref}>{phoneLabel}</a>
+          {' · '}
+          Ask Walter to set the meeting.
         </p>
       </section>
     </main>
@@ -73,35 +78,32 @@ function ReturnedPage() {
       <section className="folio">
         <header className="folio-head">
           <span>WALTER</span>
-          <a href="/">Back to Walter</a>
+          <a href="/">← Back to Walter</a>
         </header>
-        <h1>Thank you.</h1>
-        <p>
-          Returning from checkout is not proof of an active subscription. Walter will be ready only after
-          payment and service activation are confirmed.
-        </p>
+        <h1>Welcome back.</h1>
+        <p>Call Walter and ask him to schedule a meeting whenever you are ready for your own.</p>
+        <a className="walter-action primary" href={phoneHref}>
+          Call {phoneLabel}
+        </a>
       </section>
     </main>
   )
 }
 
-function AccountPage({ mode }: { mode: 'sign-in' | 'sign-up' }) {
-  if (!accountsAvailable) {
-    return (
-      <main className="auth-shell">
-        <p>
-          Accounts are being prepared. <a href="/">Return to Walter</a>
-        </p>
-      </main>
-    )
-  }
-
-  const label = mode === 'sign-in' ? 'Sign in' : 'Create an account'
+function CallPage() {
   return (
-    <main className="auth-shell">
-      <p>
-        {label} will open here when Clerk is added. <a href="/plans">Back to plans</a>
-      </p>
+    <main className="folio-page">
+      <section className="folio">
+        <header className="folio-head">
+          <span>WALTER</span>
+          <a href="/">← Back to Walter</a>
+        </header>
+        <h1>Walter answers the phone.</h1>
+        <p>Call him, try a booking, and ask him to schedule a meeting for your own Walter.</p>
+        <a className="walter-action primary" href={phoneHref}>
+          Call {phoneLabel}
+        </a>
+      </section>
     </main>
   )
 }
