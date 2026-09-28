@@ -30,7 +30,6 @@ function CompanyFooter() {
       <p className="company-links">
         <a href="https://www.professionalaiagents.com/">professionalaiagents.com</a>
         <a href="mailto:sales@professionalaiagents.com">sales@professionalaiagents.com</a>
-        <span>25 1st Ave SW, Watertown, SD 57201</span>
       </p>
     </footer>
   )
