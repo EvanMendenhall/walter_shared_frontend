@@ -1,0 +1,9 @@
+/plans                    /plans/index.html            200
+/plans/                   /plans/index.html            200
+/plans/returned           /plans/returned/index.html   200
+/plans/returned/          /plans/returned/index.html   200
+/sign-in                  /sign-in/index.html          200
+/sign-in/                 /sign-in/index.html          200
+/sign-up                  /sign-up/index.html          200
+/sign-up/                 /sign-up/index.html          200
+/walter-experience.html   /                            301
