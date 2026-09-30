@@ -26,7 +26,10 @@ function CompanyFooter() {
     <footer className="company-footer">
       <p className="company-name">Professional AI Agents LLC</p>
       <p>© 2026 Professional AI Agents LLC. All rights reserved.</p>
-      <p>This page and its images are copyrighted by Professional AI Agents LLC.</p>
+      <p>
+        The Walter character, this page, and its images, were designed by FableGauge from{' '}
+        <a href="https://fakeunilabs.com/">FakeUni Labs</a>.
+      </p>
       <p className="company-links">
         <a href="https://www.professionalaiagents.com/">professionalaiagents.com</a>
         <a href="mailto:sales@professionalaiagents.com">sales@professionalaiagents.com</a>
