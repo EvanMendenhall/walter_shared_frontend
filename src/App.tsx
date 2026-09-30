@@ -24,12 +24,12 @@ export function App() {
 function CompanyFooter() {
   return (
     <footer className="company-footer">
+      <aside className="fg-credit" aria-label="Visuals and interaction by FableGauge">
+        <img src="/walter-assets/fablegauge-walter-colorway.webp" alt="" />
+        <span className="fg-credit-copy"><small>Visuals &amp; interaction by</small><strong>FableGauge</strong></span>
+      </aside>
       <p className="company-name">Professional AI Agents LLC</p>
       <p>© 2026 Professional AI Agents LLC. All rights reserved.</p>
-      <p>
-        The Walter character, this page, and its images, were designed by FableGauge from{' '}
-        <a href="https://fakeunilabs.com/">FakeUni Labs</a>.
-      </p>
       <p className="company-links">
         <a href="https://www.professionalaiagents.com/">professionalaiagents.com</a>
         <a href="mailto:sales@professionalaiagents.com">sales@professionalaiagents.com</a>
