@@ -186,3 +186,9 @@ button {
     padding: 9px 14px;
   }
 }
+
+.company-footer .fg-credit { margin: 0 auto 12px; width: fit-content; min-height: 74px; display: grid; grid-template-columns: 51px auto; align-items: center; gap: 6px; padding: 5px 20px 5px 9px; background: linear-gradient(135deg,#fffcf3,#f6efdc); border: 1px solid #b9a268; border-bottom: 3px solid #a38a4f; border-radius: 999px; box-shadow: 0 4px 12px #153e3220; text-align: left; }
+.company-footer .fg-credit img { width: 49px; height: 62px; object-fit: contain; }
+.company-footer .fg-credit-copy { display: flex; flex-direction: column; gap: 2px; }
+.company-footer .fg-credit-copy small { font: 600 9px/1.2 Arial,sans-serif; color: #52695c; }
+.company-footer .fg-credit-copy strong { font: 600 17px/1 Georgia,serif; color: #143f34; }

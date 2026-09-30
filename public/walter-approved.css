@@ -1,0 +1,102 @@
+/* Owner-approved r074 visual materials, adapted to the live Walter page. */
+html.walter-entering, html.walter-entering body { overflow: hidden !important; }
+html.walter-entering:not(.walter-site-visible) body { background: #faf6eb !important; }
+html.walter-entering:not(.walter-site-visible) #experience { visibility: hidden !important; }
+#walter-entrance { position: fixed; inset: 0; z-index: 9999; background: #faf6eb; overflow: hidden; }
+#walter-entrance[hidden] { display: none !important; }
+#walter-entrance .entrance-room { position: absolute; inset: 0; background: url('/walter-assets/22c7f94f5158ac8d.webp') center / cover no-repeat; }
+#walter-entrance .entrance-walt { position: absolute; right: 12%; bottom: 16%; height: min(70svh, 570px); max-width: 76%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 8px 9px #26372a1d); }
+#walter-entrance .entrance-counter { position: absolute; inset: auto 0 0; height: 151px; }
+#walter-entrance .entrance-counter img { display: block; width: 100%; object-fit: cover; object-position: center top; }
+#walter-entrance .entrance-counter .top { height: 29px; }
+#walter-entrance .entrance-counter .front { height: 122px; }
+#walter-entrance .entrance-copy { position: absolute; top: clamp(30px, 9svh, 90px); left: clamp(20px, 6vw, 92px); max-width: 45%; color: #0d4035; text-shadow: 0 1px 12px #fffaf0d9; }
+#walter-entrance .entrance-copy strong { display: block; font: 500 clamp(42px, 7vw, 84px)/.95 Newsreader, Georgia, serif; }
+#walter-entrance .entrance-copy span { display: block; margin-top: 12px; font: 500 clamp(16px, 2vw, 26px) Newsreader, Georgia, serif; }
+#entrance-bell { position: absolute; right: 5%; bottom: 130px; width: 105px; min-width: 72px; min-height: 72px; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 4px 2px #051e1926); }
+#entrance-bell img { display: block; width: 100%; height: 100%; object-fit: contain; }
+#entrance-bell:hover img, #entrance-bell:focus-visible img { filter: brightness(1.05); }
+#entrance-bell:focus-visible, #entrance-skip:focus-visible { outline: 3px solid #277c65; outline-offset: 4px; }
+#entrance-skip { position: absolute; top: 14px; right: 14px; min-width: 44px; min-height: 44px; padding: 10px 17px; border: 1px solid #b9a56b; border-radius: 26px; background: #fffaf0; color: #0d4035; cursor: pointer; }
+#walter-entrance.is-opening #entrance-bell { animation: entrance-ring .48s ease-out both; }
+#walter-entrance.is-opening { animation: entrance-dissolve .62s .34s ease-in forwards; }
+@keyframes entrance-ring { 0%,100% { transform: rotate(0); } 26% { transform: rotate(-13deg); } 55% { transform: rotate(10deg); } 77% { transform: rotate(-4deg); } }
+@keyframes entrance-dissolve { to { opacity: 0; pointer-events: none; } }
+@media(max-width: 620px) {
+  #walter-entrance .entrance-copy { top: 7svh; max-width: 65%; }
+  #walter-entrance .entrance-walt { right: 3%; height: 56svh; bottom: 147px; }
+  #entrance-bell { bottom: 126px; right: 5%; width: 84px; }
+  #entrance-skip { top: 12px; right: 12px; padding: 8px 12px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  #walter-entrance.is-opening, #walter-entrance.is-opening #entrance-bell { animation: none; }
+}
+#experience .site-footer { position: relative; row-gap: 12px; }
+#experience .fg-credit { box-sizing: border-box; margin-left: auto; margin-right: -5.5%; min-height: 78px; min-width: 246px; max-width: calc(100% + 5.5%); display: grid; grid-template-columns: 56px auto; align-items: center; gap: 8px; padding: 5px clamp(20px,3.5vw,42px) 5px 9px; background: linear-gradient(135deg,#fffcf3,#f6efdc); border: 1px solid #b9a268; border-right: 0; border-bottom: 3px solid #a38a4f; border-radius: 999px 0 0 999px; box-shadow: 0 4px 12px #153e3220; color: #153f33; font-style: normal; text-align: left; line-height: 1.15; flex: none; }
+.fg-credit img { width: 54px; height: 66px; object-fit: contain; display: block; flex: none; }
+.fg-credit-copy { display: flex; flex-direction: column; gap: 2px; white-space: nowrap; }
+.fg-credit-copy small { font: 600 10px/1.2 Manrope,Arial,sans-serif; letter-spacing: .01em; color: #52695c; }
+.fg-credit-copy strong { font: 600 19px/1 Newsreader,Georgia,serif; color: #143f34; letter-spacing: -.015em; }
+@media(max-width: 800px) { #experience .fg-credit { margin-right: -6%; min-width: 218px; min-height: 74px; grid-template-columns: 51px auto; gap: 6px; padding-right: 23px; } .fg-credit img { width: 49px; height: 62px; } .fg-credit-copy strong { font-size: 17px; } .fg-credit-copy small { font-size: 9px; } }
+@media(max-width: 420px) { #experience .fg-credit { margin-left: auto; margin-top: 5px; min-width: 210px; } }
+
+/* The selected Continue to calendar and Back to home materials govern every site action. */
+:is(#experience,#consent,#notes) button.walter-button{
+ border:1px solid #b9a56b!important;
+ border-radius:26px!important;
+ background:linear-gradient(140deg,#fffbed,#eee7d2)!important;
+ color:#133e34!important;
+ box-shadow:inset 0 1px 0 #fff4cf80,0 2px 0 #a99460,0 4px 0 #062e28,0 8px 12px #001d1a55!important;
+ transform:translateY(0)!important;
+ transition:background 140ms,box-shadow 140ms,transform 140ms!important;
+}
+:is(#experience,#consent,#notes) button.walter-button.primary{
+ background:linear-gradient(140deg,#2b6953,#103f34)!important;
+ color:#fffdf3!important;
+}
+:is(#experience,#consent,#notes) button.walter-button:not(:disabled):is(:hover,:focus-visible):not(:active){
+ box-shadow:inset 0 1px 0 #fff7ddac,0 2px 0 #baa571,0 5px 0 #07392f,0 10px 15px #001c1966!important;
+ transform:translateY(-1px)!important;
+}
+:is(#experience,#consent,#notes) button.walter-button:not(.primary):not(:disabled):is(:hover,:focus-visible):not(:active){background:#fffbee!important}
+:is(#experience,#consent,#notes) button.walter-button.primary:not(:disabled):is(:hover,:focus-visible):not(:active){background:linear-gradient(140deg,#35765d,#174a3b)!important}
+:is(#experience,#consent,#notes) button.walter-button:not(:disabled):active{
+ box-shadow:inset 0 3px 6px #041f185e,0 1px 0 #8e7a49,0 2px 3px #001b176b!important;
+ transform:translateY(2px)!important;
+}
+:is(#experience,#consent,#notes) button.walter-button:focus-visible{outline:3px solid #247b65!important;outline-offset:4px!important}
+:is(#experience,#consent,#notes) button.walter-button:disabled{opacity:.55;cursor:not-allowed}
+#experience #bell-close,#consent .dialog-close.walter-button,#notes .dialog-close.walter-button{width:44px;height:44px;min-width:44px;min-height:44px;padding:0!important;gap:0}
+@media(prefers-reduced-motion:reduce){
+ :is(#experience,#consent,#notes) button.walter-button{transition:none!important;transform:none!important}
+ :is(#experience,#consent,#notes) button.walter-button:is(:hover,:focus-visible,:active){transform:none!important}
+}
+
+/* Keep the left foreground leaves. The room already supplies the right plant. */
+#experience #landing .foreground{
+ -webkit-mask-image:linear-gradient(90deg,#000 0 2.5%,#0008 4.7%,transparent 7% 100%);
+ mask-image:linear-gradient(90deg,#000 0 2.5%,#0008 4.7%,transparent 7% 100%);
+}
+
+/* Keep the approved image and its exact crop; only its three physical parts articulate. */
+#experience #landing .bell{overflow:visible}
+#experience #landing .bell-pieces{position:absolute;inset:0;display:block;pointer-events:none}
+#experience #landing .bell-piece{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;transform:none!important}
+#experience #landing .bell-base{clip-path:inset(69% 0 0 0);z-index:1}
+#experience #landing .bell-dome{clip-path:inset(22% 0 28% 0);z-index:2}
+#experience #landing .bell-plunger{clip-path:inset(0 0 76% 0);z-index:3}
+#experience #landing .bell:is(:hover,:focus-visible) .bell-piece{filter:brightness(1.04)}
+#experience #landing .bell.ring-once .bell-plunger{animation:r064-plunger 560ms cubic-bezier(.22,.75,.26,1) both}
+#experience #landing .bell.ring-once .bell-dome{animation:r064-dome 560ms cubic-bezier(.22,.75,.26,1) both}
+@keyframes r064-plunger{0%,100%{translate:0 0}24%{translate:0 3px}54%{translate:0 -1px}75%{translate:0 .5px}}
+@keyframes r064-dome{0%,100%{translate:0 0}28%{translate:0 1px}62%{translate:0 -.5px}}
+/* Give the Support copy, action, and close control their own space. */
+#experience #landing .bell-note{width:clamp(244px,22vw,286px);max-width:calc(100vw - 20px);padding:15px 16px;display:grid;grid-template-columns:minmax(0,1fr) 44px;grid-template-rows:auto auto;column-gap:4px;row-gap:8px;align-items:start}
+#experience #landing .bell-note[hidden]{display:none}
+#experience #landing .bell-note p{grid-column:1;grid-row:1;align-self:center;margin:0;line-height:1.45}
+#experience #landing .bell-note #bell-close{position:relative;inset:auto;grid-column:2;grid-row:1;width:44px;height:44px;min-height:44px;margin:-6px -7px 0 0;justify-self:end;align-self:start;font-size:22px;line-height:1}
+#experience #landing .bell-note .text-link{position:relative;inset:auto;grid-column:1 / -1;grid-row:2;width:max-content;max-width:100%;min-height:44px;height:auto;font-size:13px;white-space:nowrap}
+/* The foreground is attached to the set. Only the ambient light can drift. */
+#experience #landing .foreground{transform:none!important;transition:none!important}
+#experience #landing .foreground img{animation:none!important}
+@media(prefers-reduced-motion:reduce){#experience #landing .bell.ring-once .bell-plunger,#experience #landing .bell.ring-once .bell-dome{animation:none!important}}
