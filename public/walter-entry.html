@@ -249,11 +249,6 @@ html.force-reduced *,html.force-reduced *::before,html.force-reduced *::after{an
       <p>The optional sound is a quiet prototype chime, off by default. The Get Walter and How it works controls display a preview notice; they are not connected to account, payment, calendar, support, or production routes. The actual website has not been modified.</p>
     </details>
   </section>
-  <dialog id="preview-dialog" aria-labelledby="dialog-title">
-    <h2 id="dialog-title">Motion proof boundary</h2>
-    <p id="dialog-copy">The next Walter page is outside this opening-animation proof.</p>
-    <button id="dialog-close" type="button">Back to the scene</button>
-  </dialog>
   <script>(() => {
   const stage=document.getElementById('stage');
   const resonance=document.getElementById('resonance');
@@ -564,7 +559,7 @@ html.force-reduced *,html.force-reduced *::before,html.force-reduced *::after{an
     bell.classList.remove("pressing");
   });
   bell.addEventListener("blur",()=>bell.classList.remove("pressing"));
-  bell.addEventListener("click",()=>{if(mode==="ready"){dialogCopy.textContent="The settled bell opens help in the existing site. This motion proof stops at the homepage.";dialog.showModal();return}start()});
+  bell.addEventListener("click",()=>{if(mode==="ready")return;start()});
   replayButton.addEventListener("click",()=>{
     stopFrame();mode="idle";paused=false;origin=0;playhead=0;bell.disabled=false;bell.classList.remove("pressing");
     pauseButton.textContent="Pause";status.textContent="Ring the service bell to enter Walter.";
@@ -584,11 +579,6 @@ html.force-reduced *,html.force-reduced *::before,html.force-reduced *::after{an
   depthButton.addEventListener("click",()=>{depthEnabled=!depthEnabled;depthButton.setAttribute("aria-pressed",String(depthEnabled));depthButton.textContent="Depth layers: "+(depthEnabled?"on":"off");renderAt(playhead)});
   scrub.addEventListener("input",()=>{stopFrame();mode="scrubbing";paused=false;pauseButton.textContent="Pause";renderAt(Number(scrub.value));if(Number(scrub.value)===0){mode="idle";renderAt(0)}else if(Number(scrub.value)>=DURATION){mode="ready";renderAt(DURATION)}});
   phaseButtons.forEach(b=>b.addEventListener("click",()=>{stopFrame();const t=Number(b.dataset.seek);mode=t===0?"idle":t>=DURATION?"ready":"scrubbing";renderAt(t);stage.scrollIntoView({block:"start",behavior:"instant"})}));
-  [...document.querySelectorAll("[data-preview-action]")].forEach(b=>b.addEventListener("click",()=>{
-    dialogCopy.textContent=b.dataset.previewAction==="get"?"Get Walter opens the public Your details page in the real site. Account, payment and calendar flows are outside this animation proof.":"How it works remains on the public homepage in the real site. This animation proof ends at the welcome scene.";
-    dialog.showModal();
-  }));
-  $("dialog-close").addEventListener("click",()=>dialog.close());
   window.addEventListener("resize",()=>renderAt(playhead));
   media.addEventListener?.("change",()=>renderAt(playhead));
   for(const id of ["bell","room","walt","counter"]) {

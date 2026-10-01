@@ -192,3 +192,4 @@ button {
 .company-footer .fg-credit-copy { display: flex; flex-direction: column; gap: 2px; }
 .company-footer .fg-credit-copy small { font: 600 9px/1.2 Arial,sans-serif; color: #52695c; }
 .company-footer .fg-credit-copy strong { font: 600 17px/1 Georgia,serif; color: #143f34; }
+.company-footer .fg-credit-copy strong a { color: inherit; text-decoration: none; }

@@ -26,14 +26,12 @@ function CompanyFooter() {
     <footer className="company-footer">
       <aside className="fg-credit" aria-label="Visuals and interaction by FableGauge">
         <img src="/walter-assets/fablegauge-walter-colorway.webp" alt="" />
-        <span className="fg-credit-copy"><small>Visuals &amp; interaction by</small><strong>FableGauge</strong></span>
+        <span className="fg-credit-copy"><small>Visuals &amp; interaction by</small><strong><a href="https://fakeunilabs.com/#contact">FableGauge</a></strong></span>
       </aside>
-      <p className="company-name">Professional AI Agents LLC</p>
-      <p>© 2026 Professional AI Agents LLC. All rights reserved.</p>
-      <p className="company-links">
-        <a href="https://www.professionalaiagents.com/">professionalaiagents.com</a>
-        <a href="mailto:sales@professionalaiagents.com">sales@professionalaiagents.com</a>
+      <p className="company-name">
+        Walter is a <a href="https://www.professionalaiagents.com/">Professional AI Agents LLC</a> product
       </p>
+      <p>© 2026 Professional AI Agents LLC. All rights reserved.</p>
     </footer>
   )
 }
