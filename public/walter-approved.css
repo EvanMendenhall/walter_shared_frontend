@@ -2,35 +2,12 @@
 html.walter-entering, html.walter-entering body { overflow: hidden !important; }
 html.walter-entering:not(.walter-site-visible) body { background: #faf6eb !important; }
 html.walter-entering:not(.walter-site-visible) #experience { visibility: hidden !important; }
-#walter-entrance { position: fixed; inset: 0; z-index: 9999; background: #faf6eb; overflow: hidden; }
+#walter-entrance { position: fixed; inset: 0; z-index: 9999; background: #faf6eb; overflow: hidden; opacity: 1; }
 #walter-entrance[hidden] { display: none !important; }
-#walter-entrance .entrance-room { position: absolute; inset: 0; background: url('/walter-assets/22c7f94f5158ac8d.webp') center / cover no-repeat; }
-#walter-entrance .entrance-walt { position: absolute; right: 12%; bottom: 16%; height: min(70svh, 570px); max-width: 76%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 8px 9px #26372a1d); }
-#walter-entrance .entrance-counter { position: absolute; inset: auto 0 0; height: 151px; }
-#walter-entrance .entrance-counter img { display: block; width: 100%; object-fit: cover; object-position: center top; }
-#walter-entrance .entrance-counter .top { height: 29px; }
-#walter-entrance .entrance-counter .front { height: 122px; }
-#walter-entrance .entrance-copy { position: absolute; top: clamp(30px, 9svh, 90px); left: clamp(20px, 6vw, 92px); max-width: 45%; color: #0d4035; text-shadow: 0 1px 12px #fffaf0d9; }
-#walter-entrance .entrance-copy strong { display: block; font: 500 clamp(42px, 7vw, 84px)/.95 Newsreader, Georgia, serif; }
-#walter-entrance .entrance-copy span { display: block; margin-top: 12px; font: 500 clamp(16px, 2vw, 26px) Newsreader, Georgia, serif; }
-#entrance-bell { position: absolute; right: 5%; bottom: 130px; width: 105px; min-width: 72px; min-height: 72px; padding: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 4px 2px #051e1926); }
-#entrance-bell img { display: block; width: 100%; height: 100%; object-fit: contain; }
-#entrance-bell:hover img, #entrance-bell:focus-visible img { filter: brightness(1.05); }
-#entrance-bell:focus-visible, #entrance-skip:focus-visible { outline: 3px solid #277c65; outline-offset: 4px; }
-#entrance-skip { position: absolute; top: 14px; right: 14px; min-width: 44px; min-height: 44px; padding: 10px 17px; border: 1px solid #b9a56b; border-radius: 26px; background: #fffaf0; color: #0d4035; cursor: pointer; }
-#walter-entrance.is-opening #entrance-bell { animation: entrance-ring .48s ease-out both; }
-#walter-entrance.is-opening { animation: entrance-dissolve .62s .34s ease-in forwards; }
-@keyframes entrance-ring { 0%,100% { transform: rotate(0); } 26% { transform: rotate(-13deg); } 55% { transform: rotate(10deg); } 77% { transform: rotate(-4deg); } }
-@keyframes entrance-dissolve { to { opacity: 0; pointer-events: none; } }
-@media(max-width: 620px) {
-  #walter-entrance .entrance-copy { top: 7svh; max-width: 65%; }
-  #walter-entrance .entrance-walt { right: 3%; height: 56svh; bottom: 147px; }
-  #entrance-bell { bottom: 126px; right: 5%; width: 84px; }
-  #entrance-skip { top: 12px; right: 12px; padding: 8px 12px; }
-}
-@media(prefers-reduced-motion: reduce) {
-  #walter-entrance.is-opening, #walter-entrance.is-opening #entrance-bell { animation: none; }
-}
+#walter-entrance.done { opacity: 0; pointer-events: none; transition: opacity 990ms ease-in-out; }
+#intro-frame { display: block; width: 100%; height: 100vh; height: 100svh; border: 0; background: #faf6eb; }
+@supports(height: 100dvh) { #intro-frame { height: 100dvh; } }
+@media(prefers-reduced-motion: reduce) { #walter-entrance.done { transition-duration: 90ms; } }
 #experience .site-footer { position: relative; row-gap: 12px; }
 #experience .fg-credit { box-sizing: border-box; margin-left: auto; margin-right: -5.5%; min-height: 78px; min-width: 246px; max-width: calc(100% + 5.5%); display: grid; grid-template-columns: 56px auto; align-items: center; gap: 8px; padding: 5px clamp(20px,3.5vw,42px) 5px 9px; background: linear-gradient(135deg,#fffcf3,#f6efdc); border: 1px solid #b9a268; border-right: 0; border-bottom: 3px solid #a38a4f; border-radius: 999px 0 0 999px; box-shadow: 0 4px 12px #153e3220; color: #153f33; font-style: normal; text-align: left; line-height: 1.15; flex: none; }
 .fg-credit img { width: 54px; height: 66px; object-fit: contain; display: block; flex: none; }
