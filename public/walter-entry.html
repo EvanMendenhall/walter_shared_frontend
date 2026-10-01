@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Walter — A Bell and Walter</title>
+  <script>document.documentElement.classList.add("js");window.__bellBootWatch=setTimeout(function(){if(!window.__bellBooted)document.documentElement.classList.remove("js")},2800)</script>
+  <style>@font-face{font-family:Newsreader;src:url("/walter-entry-assets/8a08d13f8a6c0d51be379a60af84f945f65369a67e509ee3c3bdcc421254d7c1.ttf") format("truetype");font-display:swap}
+@font-face{font-family:Manrope;src:url("/walter-entry-assets/3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6.ttf") format("truetype");font-display:swap}
+:root{--ink:#0d4035;--deep:#0b382f;--paper:#fffaf0;--ivory:#faf6eb;--gold:#c6a361;--quiet:#567064;font-family:Manrope,Arial,sans-serif;color:var(--ink);background:#efede5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #277c65;outline-offset:4px}button:disabled{cursor:default}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.stage{position:relative;isolation:isolate;height:max(650px,100svh);overflow:hidden;background:var(--ivory);box-shadow:0 18px 45px #183d3120}
+.ivory-field{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 75% at 50% 42%,#fffcf5 0%,#fcf8ee 65%,#f4ebda 100%);pointer-events:none}
+.art{pointer-events:none;user-select:none}
+.entry-wall{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 36% 43% at 50% 46%,#fffdf5 8%,#fff8e8b8 65%,transparent 100%),linear-gradient(104deg,#cfb8871a,transparent 31% 71%,#ad8f6318);opacity:1}
+.entry-wall:before{content:"";position:absolute;left:50%;top:12%;width:min(630px,58vw);height:77%;transform:translateX(-50%);border:1px solid #d8c39445;border-bottom:0;border-radius:46% 46% 0 0 / 31% 31% 0 0;box-shadow:inset 18px 0 40px #fffdf580,24px 0 65px #b9994b0d}
+.entry-light{position:absolute;inset:0;z-index:2;opacity:.52;background:linear-gradient(112deg,transparent 23%,#fff1bd24 41%,#fff9db80 48%,transparent 59%),radial-gradient(ellipse 18% 26% at 82% 43%,#cbbd9a19,transparent);mix-blend-mode:multiply}
+.entry-floor{position:absolute;inset:0;z-index:6;opacity:1;background:radial-gradient(ellipse 28% 4.5% at 50% 70%,#9276501d,transparent 100%),linear-gradient(180deg,transparent 62%,#d2bd9360 71%,#dfcfaa42 83%,#f6f0df6b 100%);mask-image:linear-gradient(180deg,transparent 48%,#000 69%)}
+.entry-foreground{position:absolute;inset:0;z-index:11;opacity:.4;background:radial-gradient(ellipse 20% 36% at -6% 80%,#c5a36a38,transparent 90%),radial-gradient(ellipse 17% 31% at 106% 75%,#bda16f2d,transparent 90%)}
+.room{position:absolute;inset:0;z-index:1;background:url("/walter-entry-assets/22c7f94f5158ac8d7da7191f62888ca6080212eb48c18668d90fe6832638ff76.webp") center/cover no-repeat;opacity:1;transform:scale(1.018);transform-origin:center center}
+.sunbeam{position:absolute;inset:0;z-index:2;opacity:.64;background:linear-gradient(118deg,transparent 27%,#fff2c53b 43%,#fff9dd73 50%,transparent 64%);mix-blend-mode:soft-light;mask-image:linear-gradient(90deg,transparent,#000 17%,#000 94%,transparent)}
+.leaf-shadow{position:absolute;z-index:3;right:-3%;top:8%;width:28%;height:62%;background:radial-gradient(ellipse at 70% 50%,#28513b31,transparent 70%);filter:blur(15px);opacity:.28;transform-origin:right center}
+.room-haze{position:absolute;inset:0;z-index:3;opacity:0;background:radial-gradient(ellipse 44% 53% at 68% 43%,#fff3d527,transparent 100%),linear-gradient(95deg,transparent 36%,#fff6dc1c 62%,transparent 86%);mix-blend-mode:screen}
+.walt{position:absolute;z-index:4;right:14%;bottom:132px;height:min(570px,76%);width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 8px 9px #26372a1d)}
+
+.counter{position:absolute;z-index:6;left:0;right:0;bottom:0;height:151px;filter:drop-shadow(0 -4px 6px #24483b12)}
+.counter img{display:block;width:100%;object-fit:cover;object-position:center top}
+.counter-top{height:29px}.counter-front{height:122px}
+.counter:after{content:"";position:absolute;left:0;right:0;top:28px;height:7px;background:linear-gradient(#f8eed27a,transparent);mix-blend-mode:screen;pointer-events:none}
+.near-shade{position:absolute;inset:0;z-index:10;opacity:0;background:radial-gradient(ellipse 28% 75% at -12% 75%,#16432d37,transparent 95%),radial-gradient(ellipse 26% 76% at 112% 74%,#173c2b31,transparent 95%)}
+.foliage{position:absolute;inset:0;z-index:11;background:url("/walter-entry-assets/21c10d45bde138e1f6f8253d43181351ecba579f15b05fbd544d9cfbab492ce1.webp") center/cover no-repeat;opacity:.68;mask-image:linear-gradient(90deg,#000 0,#0008 4%,transparent 10% 91%,#0008 97%,#000);transform-origin:center;pointer-events:none}
+.entry-shadow,.landing-shadow{position:absolute;z-index:7;width:170px;height:19px;border-radius:50%;background:#3f352629;filter:blur(10px);transform:translate(-50%,-50%);pointer-events:none}
+.landing-shadow{background:#0a312640;width:85px;height:10px;filter:blur(4px)}
+.guide-aura{position:absolute;z-index:8;width:120px;height:22px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(ellipse,#f7dca67d 0%,#f3d1983d 34%,transparent 77%);filter:blur(8px);opacity:0;pointer-events:none}
+.resonance{position:absolute;z-index:10;width:190px;height:190px;border:2px solid #d0a965;box-shadow:0 0 13px #e5c07a66;filter:blur(.2px);border-radius:50%;transform:translate(-50%,-50%) scale(.48);opacity:0;pointer-events:none}
+.bell-button{position:absolute;z-index:12;right:5%;bottom:130px;width:105px;min-width:72px;min-height:64px;padding:0;border:0;background:none;color:inherit;border-radius:30%;touch-action:manipulation;isolation:isolate;transform-origin:center 85%;filter:drop-shadow(0 4px 2px #051e1926)}
+.bell-button .bell-visual{position:relative;display:block;width:100%;height:100%;object-fit:contain;transition:filter 170ms ease,transform 170ms ease;pointer-events:none;user-select:none}
+.bell-button .bell-glint{position:absolute;z-index:1;left:23%;top:20%;width:54%;height:33%;border-radius:50%;background:linear-gradient(105deg,transparent 41%,#fff9dc88 50%,transparent 58%);filter:blur(5px);opacity:0;pointer-events:none}
+.entry-invite{position:absolute;z-index:13;inset:0;pointer-events:none;text-align:center;color:var(--ink);opacity:1}
+.invite-eyebrow{position:absolute;top:27%;left:0;width:100%;margin:0;font:700 10px Manrope,Arial,sans-serif;letter-spacing:.21em;color:#957546}
+.invite-title{position:absolute;top:30%;left:0;width:100%;margin:0;font:500 clamp(42px,5.5vw,76px)/1 Newsreader,Georgia,serif;letter-spacing:-.035em}
+.invite-action{position:absolute;top:79%;left:0;width:100%;margin:0;font:600 14px Manrope,Arial,sans-serif;letter-spacing:.025em;color:#315c48}
+.invite-arrow{display:block;font:400 25px/1 Newsreader,Georgia,serif;color:#a27e41;margin-bottom:4px;animation:invite-point 6.4s ease-in-out 1.8s infinite}
+@keyframes invite-point{0%,23%,41%,100%{transform:translateY(0)}28%,34%{transform:translateY(5px)}}
+.js .bell-button{left:50%;top:53%;right:auto;bottom:auto;width:220px;height:194px;transform:translate(-50%,-50%)}
+.js .stage[data-state=idle] .bell-button:not(:hover):not(:focus-visible):not(.pressing)  .bell-visual{transform-origin:50% 88%;animation:friendly-wiggle 6.4s ease-in-out 1.8s infinite}
+@keyframes friendly-wiggle{0%,23%,40%,100%{transform:translateY(0) rotate(0deg)}26%{transform:translateY(2px) rotate(-2.4deg)}30%{transform:translateY(-1px) rotate(3.8deg)}34%{transform:translateY(0) rotate(-2deg)}38%{transform:translateY(0) rotate(.7deg)}}
+.js .stage[data-state=idle] .bell-button:hover .bell-visual{filter:brightness(1.07) saturate(1.02);transform:translateY(-2px) scale(1.013) rotate(-.5deg)}
+.js .stage[data-state=idle] .bell-button.pressing .bell-visual{transform:translateY(3px) scaleY(.97)!important;filter:brightness(1.025)}
+.js .stage[data-state=idle] .bell-button .bell-glint{animation:bell-glint 8s ease-in-out 1.5s infinite}
+.js .stage[data-state=idle] .bell-button:hover .bell-glint{animation:none;opacity:.22}
+.bell-button:focus-visible{outline:3px solid #0c654d;outline-offset:9px;box-shadow:0 0 0 6px #e4c27766}
+@keyframes bell-glint{0%,72%,100%{opacity:0;transform:translateX(-18px)}76%{opacity:.15}83%{opacity:0;transform:translateX(20px)}}
+.home{position:absolute;z-index:15;inset:0;pointer-events:none;opacity:1}
+html:not(.js) .home button{pointer-events:auto}
+.site-header{height:86px;display:flex;align-items:center;justify-content:space-between;padding:0 6.2%;background:#fffaf0e8;border-bottom:1px solid #e8dec884}
+.wordmark{display:flex;align-items:center;gap:16px;font:25px Newsreader,Georgia,serif;letter-spacing:.18em}.wordmark svg{width:28px;height:37px;fill:var(--ink)}
+.site-header nav{display:flex;align-items:center;gap:28px;font:18px Newsreader,Georgia,serif}
+.site-header nav button{border:0;background:none;color:var(--ink);min-height:46px}
+.site-header nav .nav-start{font:600 14px Manrope,Arial,sans-serif;color:#fffdf2;padding:12px 21px}
+.hero-copy{position:absolute;left:7.2%;top:20%;width:41%;max-width:480px}
+.eyebrow,.counter-caption,.review-kicker{font:700 10px Manrope,Arial,sans-serif;letter-spacing:.18em}.eyebrow{color:#8e713e;margin:0 0 24px}
+.hero-copy h1{font:500 clamp(76px,8vw,116px)/.84 Newsreader,Georgia,serif;letter-spacing:-.045em;margin:0}
+.hero-copy h1 span{display:block}
+.subtitle{font:400 33px/1.06 Newsreader,Georgia,serif;margin:23px 0 16px}
+.body-copy{font:400 15px/1.6 Manrope,Arial,sans-serif;color:#4d685d;margin:0}
+.hero-actions{position:absolute;z-index:18;left:7%;bottom:47px;display:flex;align-items:center;gap:16px;min-height:72px}
+.hero-actions:before{content:"";position:absolute;z-index:-1;left:-8vw;right:-8vw;top:-14px;bottom:-15px;background:linear-gradient(180deg,#092d267a,#0c392d58 50%,#072e276e);border-top:1px solid #dbc68a75;border-bottom:1px solid #dbc68a75;box-shadow:inset 0 4px 8px #021e1e37;pointer-events:none}
+.tactile{display:inline-flex;align-items:center;justify-content:center;gap:23px;min-height:54px;min-width:168px;padding:13px 27px;border-radius:999px;border:1px solid #bba769;box-shadow:inset 0 1px 0 #fff2c646,0 2px 0 #052b24,0 5px 10px #001c2a4a;transition:transform 140ms ease,box-shadow 140ms ease,background 140ms ease}
+.tactile.primary{background:linear-gradient(140deg,#2b6953,#103f34);color:#fffdf3}.tactile.secondary{background:linear-gradient(140deg,#fffbed,#eee7d2);color:#123f35}
+.tactile:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 #fff7d660,0 3px 0 #052b24,0 7px 13px #001c2a55}
+.tactile:active{transform:translateY(2px);box-shadow:inset 0 2px 5px #052f274d,0 1px 0 #062921}
+.counter-caption{position:absolute;z-index:17;left:7%;bottom:15px;color:#f8f1dc;margin:0;font-size:9px}
+.js .room,.js .sunbeam,.js .leaf-shadow,.js .room-haze,.js .walt,.js .counter,.js .near-shade,.js .foliage,.js .home,.js .landing-shadow{opacity:0}
+.js .counter{transform:translateY(102%)}
+.js .home{visibility:hidden}
+.js .entry-shadow{opacity:1}
+.js .stage[data-state=ready] .home{pointer-events:none;visibility:visible}
+.js .stage[data-state=ready] .home button{pointer-events:auto}
+.js .stage[data-state=ready] .bell-button{cursor:pointer}
+.stage[data-state=ready] .sunbeam{animation:daylight-breathe 21s ease-in-out infinite alternate}
+.stage[data-state=ready] .leaf-shadow{animation:leaf-breathe 17s ease-in-out infinite alternate}
+.stage[data-state=ready] .foliage{animation:foliage-breathe 23s ease-in-out infinite alternate}
+@keyframes daylight-breathe{from{transform:translateX(-8px);opacity:.42}to{transform:translateX(7px);opacity:.59}}
+@keyframes leaf-breathe{from{transform:translate(-2px,1px) rotate(-.2deg);opacity:.18}to{transform:translate(3px,-2px) rotate(.25deg);opacity:.28}}
+@keyframes foliage-breathe{from{transform:translateY(0)}to{transform:translateY(2px)}}
+.review{max-width:1060px;margin:0 auto;padding:42px 26px 60px}.review-heading{max-width:760px}.review-kicker{color:#936f34;margin:0 0 10px}.review h2{font:500 41px/.98 Newsreader,Georgia,serif;margin:0 0 15px}.review p{line-height:1.65;color:#486359}
+.review-controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:28px 0 18px;background:#fffcf5;border:1px solid #e4dac6;padding:16px;border-radius:18px;box-shadow:0 8px 18px #0f403213}
+.review-controls button,.phase-nav button,.notes summary,#dialog-close{border:1px solid #afc1ae;background:#fffaf0;color:#0c4034;border-radius:999px;padding:10px 15px;min-height:44px}
+.review-controls button:hover,.phase-nav button:hover,#dialog-close:hover{background:#edf3e9}
+.review-controls label{font-size:13px;font-weight:700;margin-left:auto}.review-controls input[type=range]{width:min(260px,100%);accent-color:#12664e}
+.phase-nav{display:flex;gap:8px;flex-wrap:wrap}.phase-nav button{font-size:12px}.phase-nav button[aria-current=true]{background:#17503f;color:#fff}
+.notes{margin-top:24px;border-top:1px solid #d6d9cb;padding-top:12px}.notes summary{display:inline-flex;align-items:center;cursor:pointer}.notes p{max-width:820px}
+dialog{width:min(440px,calc(100% - 32px));border:1px solid #c5c8af;border-radius:20px;padding:28px;background:#fffaf0;color:var(--ink);box-shadow:0 18px 55px #12382d46}
+dialog::backdrop{background:#102f2a73}
+dialog h2{font:500 30px Newsreader,Georgia,serif;margin:0 0 12px}
+dialog p{line-height:1.6}
+@media(max-width:800px){
+  .stage{height:max(720px,100svh)}
+  .site-header{height:74px;padding:0 6%}.wordmark{font-size:21px;gap:10px}.wordmark svg{width:25px;height:33px}.site-header nav{gap:0}.site-header nav .nav-start{display:none}.site-header nav button{font-size:16px}
+  .hero-copy{top:102px;left:7%;width:86%;max-width:none}.hero-copy h1{font-size:clamp(55px,14vw,80px);line-height:.92}.hero-copy h1 span{display:inline}
+  .eyebrow{font-size:9px;margin-bottom:15px}.subtitle{font-size:25px;margin:14px 0 10px}.desktop-break{display:none}.body-copy{font-size:13px;line-height:1.55}
+  .walt{height:43%;right:12%;bottom:179px;max-height:365px}
+  .counter{height:184px}.counter-top{height:27px}.counter-front{height:157px}
+  .hero-actions{left:6%;right:6%;bottom:52px;gap:9px;min-height:54px}.hero-actions:before{left:-6vw;right:-6vw;top:-13px;bottom:-13px}
+  .hero-actions .tactile{flex:1;min-width:0;min-height:48px;padding:11px 8px;gap:6px;font-size:12px}
+  .counter-caption{left:7%;bottom:18px;font-size:8px}
+  .foliage{background-size:auto 100%;background-position:center;opacity:.46;mask-image:linear-gradient(90deg,#000 0,transparent 8% 91%,#000 100%)}
+  .entry-wall:before{width:83vw;top:18%;height:65%}.entry-light{background:linear-gradient(114deg,transparent 18%,#fff3cb37 44%,#fff9e596 51%,transparent 72%)}
+  .invite-eyebrow{top:24%;font-size:9px;letter-spacing:.15em}.invite-title{top:28%;font-size:clamp(42px,11vw,56px)}.invite-action{top:78%;font-size:13px}
+  .review{padding:30px 18px 50px}.review h2{font-size:35px}.review-controls label{width:100%;margin:2px 0 0}.review-controls input[type=range]{width:100%}
+}
+@media(max-width:390px){.hero-copy h1{font-size:53px}.hero-copy{top:91px}.subtitle{font-size:23px}.walt{right:9%;height:41%;bottom:179px}.hero-actions .tactile{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+html.force-reduced *,html.force-reduced *::before,html.force-reduced *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+
+/* Exact source image is split in SVG display layers. The knob is the only large independent stroke. */
+.bell-button .bell-visual{position:relative;display:block;width:100%;height:100%;object-fit:contain;transition:filter 170ms ease,transform 170ms ease;pointer-events:none;user-select:none}
+.bell-button .bell-original{display:none}
+.stage[data-rig=off] .bell-button .bell-rig{display:none}
+.stage[data-rig=off] .bell-button .bell-original{display:block}
+.bell-button.pressing .bell-visual{transform:none!important;filter:brightness(1.025)}
+.js .stage[data-rig=on][data-state=idle] .bell-button.pressing .bell-rig{transform:none!important}
+.stage[data-rig=off] .bell-button.pressing .bell-original{transform:translateY(3px) scaleY(.97)!important}
+.rig-note{font-weight:700;color:#315c48}
+
+.ring-warmth,.landing-glow{position:absolute;z-index:7;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%;opacity:0}
+.ring-warmth{height:25px;background:radial-gradient(ellipse,#f9daa97a 0%,#efd1a13d 37%,transparent 74%);filter:blur(5px)}
+.landing-glow{height:12px;background:radial-gradient(ellipse,#fff3d9b0 0%,#e8c89165 45%,transparent 78%);filter:blur(3px)}
+.stage[data-ring-response=on] .resonance{border-color:#c69a55;box-shadow:0 0 14px #efcb878a,0 0 27px #f5e0a54d}
+.stage[data-landing-contact=on] .landing-shadow{background:#082e2454}
+
+/* r055: small material accents and a continuous entrance-to-ambience handoff. */
+.contact-reflection{position:absolute;z-index:7;height:9px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,#f2d78b 0%,#c7a05d80 42%,transparent 76%);filter:blur(2px);opacity:0;pointer-events:none}
+.stage[data-polish=on][data-state=ready] .sunbeam{animation:polished-daylight 21s ease-in-out infinite alternate}
+.stage[data-polish=on][data-state=ready] .leaf-shadow{animation:polished-leaf 17s ease-in-out infinite alternate}
+.stage[data-polish=on][data-state=ready] .foliage{animation:none;transform:none}
+@keyframes polished-daylight{from{transform:translateX(0);opacity:.65}to{transform:translateX(4px);opacity:.61}}
+@keyframes polished-leaf{from{transform:translate(0,0) rotate(0);opacity:.28}to{transform:translate(2px,-1px) rotate(.15deg);opacity:.25}}
+</style>
+<style>body>*:not(#stage){display:none!important}.stage{height:100svh;min-height:0;box-shadow:none}</style><style id="production-entry-frame">html,body{width:100%;height:100%;overflow:hidden}body{margin:0}.review{display:none!important}#stage{margin:0!important;max-width:none!important;width:100%!important;min-height:100svh!important}.stage{overflow:hidden}@media(max-height:500px) and (min-width:600px){.invite-eyebrow{top:12%;font-size:9px}.invite-title{top:17%;font-size:clamp(30px,4.5vw,42px)}.js .bell-button{top:56%;width:146px;height:128px}.invite-action{top:80%;font-size:12px}.entry-wall:before{top:6%;height:82%}}</style></head>
+<body>
+  <main id="stage" class="stage" data-state="idle" data-rig="on" data-ring-response="on" data-landing-contact="on" data-guided-lift="on" data-soft-reveal="on" data-polish="on" data-dissolve="on" aria-label="Walter bell-first entrance preview">
+    <div class="ivory-field" aria-hidden="true"></div>
+    <div id="entry-wall" class="entry-wall art" aria-hidden="true"></div>
+    <div id="entry-light" class="entry-light art" aria-hidden="true"></div>
+    <div id="entry-floor" class="entry-floor art" aria-hidden="true"></div>
+    <div id="room" class="room art" aria-hidden="true"></div>
+    <div id="sunbeam" class="sunbeam art" aria-hidden="true"></div>
+    <div id="leaf-shadow" class="leaf-shadow art" aria-hidden="true"></div>
+    <div id="room-haze" class="room-haze art" aria-hidden="true"></div>
+    <img id="walt" class="walt art" src="/walter-entry-assets/a31b8074296442f85a44195dbe573ec6f60df2599774c26a9d6540b82692e942.webp" alt="" aria-hidden="true" decoding="async">
+    <div id="counter" class="counter art" aria-hidden="true">
+      <img class="counter-top" src="/walter-entry-assets/586daef29f2ff761d76a46bc4a9ce647d3227106f9dc1c24a196cacea82923ef.webp" alt="">
+      <img class="counter-front" src="/walter-entry-assets/600aa6f8e8396cfc4e272f91cdb8da088c8d0f93321420eba068a322e8ce0839.webp" alt="">
+    </div>
+    <div id="near-shade" class="near-shade art" aria-hidden="true"></div>
+    <div id="foliage" class="foliage art" aria-hidden="true"></div>
+    <div id="entry-foreground" class="entry-foreground art" aria-hidden="true"></div>
+    <div id="entry-shadow" class="entry-shadow art" aria-hidden="true"></div>
+    <div id="landing-shadow" class="landing-shadow art" aria-hidden="true"></div>
+    <div id="guide-aura" class="guide-aura art" aria-hidden="true"></div>
+    <div id="ring-warmth" class="ring-warmth art" aria-hidden="true"></div>
+    <div id="landing-glow" class="landing-glow art" aria-hidden="true"></div>
+    <div id="contact-reflection" class="contact-reflection art" aria-hidden="true"></div>
+    <div id="resonance" class="resonance art" aria-hidden="true"></div>
+    <button id="bell" class="bell-button" type="button" aria-label="Ring the service bell to enter Walter">
+      <span class="bell-glint" aria-hidden="true"></span>
+      <svg class="bell-visual bell-rig" viewBox="0 0 831 736" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="base-clip"><rect x="0" y="510" width="831" height="226"/></clipPath>
+          <mask id="dome-mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" style="mask-type:luminance"><rect x="0" y="155" width="831" height="375" fill="white"/><path d="M335 0 H496 V64 Q496 87 468 105 L459 111 V129 Q489 132 493 153 Q495 177 477 180 H352 Q334 177 338 152 Q343 133 370 130 V108 Q336 94 335 64 Z" fill="black"/></mask>
+          <mask id="knob-mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" style="mask-type:luminance"><path d="M335 0 H496 V64 Q496 87 468 105 L459 111 V129 Q489 132 493 153 Q495 177 477 180 H352 Q334 177 338 152 Q343 133 370 130 V108 Q336 94 335 64 Z" fill="white"/></mask>
+          <mask id="patch-mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" style="mask-type:luminance"><path d="M335 0 H496 V64 Q496 87 468 105 L459 111 V129 Q489 132 493 153 Q495 177 477 180 H352 Q334 177 338 152 Q343 133 370 130 V108 Q336 94 335 64 Z" fill="white"/><rect x="0" y="0" width="831" height="145" fill="black"/></mask>
+        </defs>
+        <image id="base-part" href="/walter-entry-assets/cdf0726c441609278eaa124c557866d52f5ec36f59b578c2208721e6a8a7f010.webp" x="0" y="0" width="831" height="736" clip-path="url(#base-clip)"/>
+        <g id="dome-part"><image href="/walter-entry-assets/557ba8c269cacb1c4766d56a60564bcaccef1aa31522ed7ec03a024b54889cef.png" x="0" y="0" width="831" height="736" preserveAspectRatio="none" mask="url(#patch-mask)"/><image href="/walter-entry-assets/cdf0726c441609278eaa124c557866d52f5ec36f59b578c2208721e6a8a7f010.webp" x="0" y="0" width="831" height="736" mask="url(#dome-mask)"/></g>
+        <g id="knob-part"><image href="/walter-entry-assets/cdf0726c441609278eaa124c557866d52f5ec36f59b578c2208721e6a8a7f010.webp" x="0" y="0" width="831" height="736" mask="url(#knob-mask)"/></g>
+      </svg><img class="bell-visual bell-original" src="/walter-entry-assets/cdf0726c441609278eaa124c557866d52f5ec36f59b578c2208721e6a8a7f010.webp" alt="" draggable="false">
+    </button>
+    <div id="entry-invite" class="entry-invite" aria-hidden="true"><p class="invite-eyebrow">A LITTLE HELP IS ONE RING AWAY</p><p class="invite-title">Shall we begin?</p><p class="invite-action"><span class="invite-arrow" aria-hidden="true">↑</span> Give the bell a press</p></div>
+    <section id="home" class="home" aria-label="Walter homepage" tabindex="-1">
+      <header class="site-header">
+        <div class="wordmark" aria-label="Walter">
+          <svg viewBox="0 0 32 40" aria-hidden="true"><rect x="2" y="16" width="3" height="8" rx="2"/><rect x="8" y="8" width="3" height="24" rx="2"/><rect x="14" y="2" width="3" height="36" rx="2"/><rect x="20" y="8" width="3" height="24" rx="2"/><rect x="26" y="16" width="3" height="8" rx="2"/></svg>
+          <span>WALTER</span>
+        </div>
+        <nav aria-label="Preview navigation">
+          <button class="nav-how" type="button" data-preview-action="how">How it works</button>
+          <button class="nav-start tactile primary" type="button" data-preview-action="get">Get Walter <span aria-hidden="true">→</span></button>
+        </nav>
+      </header>
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE MORE TIME FOR YOU</p>
+        <h1 id="home-title" tabindex="-1"><span>Meet</span> <span>Walter.</span></h1>
+        <p class="subtitle">Your AI scheduling<br class="desktop-break"> concierge.</p>
+        <p class="body-copy">A helping hand for your calls<br class="desktop-break"> and your calendar.</p>
+      </div>
+      <div id="hero-actions" class="hero-actions" aria-label="Welcome actions">
+        <button class="tactile primary" type="button" data-preview-action="get">Get Walter <span aria-hidden="true">→</span></button>
+        <button class="tactile secondary" type="button" data-preview-action="how">How it works</button>
+      </div>
+      <p class="counter-caption">YOUR DAY. A LITTLE LIGHTER.</p>
+    </section>
+    <p id="status" class="sr-only" role="status" aria-live="polite">Ring the service bell to enter Walter.</p>
+  </main>
+
+  <section class="review" aria-labelledby="review-title">
+    <div class="review-heading">
+      <p class="review-kicker">WALTER ENTRANCE · r057</p>
+      <h2 id="review-title">Walter dissolves into the room</h2>
+      <p>Press the Bell and watch Walter appear gently in place behind the counter. The Bell, room, landing and homepage keep the r055 motion you preferred. Turn Walter dissolve off to compare Walter's previous entrance.</p>
+    </div>
+    <div class="review-controls" role="group" aria-label="Animation review controls">
+      <button id="replay" type="button">Replay from bell</button>
+      <button id="play-pause" type="button">Pause</button>
+      <button id="finish" type="button">Show finished home</button>
+      <button id="sound" type="button" aria-pressed="false">Sound: off</button>
+      <button id="reduce" type="button" aria-pressed="false">Reduced motion: system</button>
+      <button id="dissolve-toggle" type="button" aria-pressed="true">Walter dissolve: on</button>
+      <button id="polish-toggle" type="button" aria-pressed="true">Full polish: on</button>
+      <button id="guided-toggle" type="button" aria-pressed="true">Guided lift: on</button>
+      <button id="soft-toggle" type="button" aria-pressed="true">Soft reveal: on</button>
+      <button id="rig-toggle" type="button" aria-pressed="true">Articulated press: on</button>
+      <button id="steady-toggle" type="button" aria-pressed="true">Steadier transition: on</button>
+      <button id="ring-toggle" type="button" aria-pressed="true">Ring response: on</button>
+      <button id="landing-toggle" type="button" aria-pressed="true">Landing contact: on</button>
+      <button id="depth-toggle" type="button" aria-pressed="true">Depth layers: on</button>
+      <label for="scrub">Inspect timeline <span id="time-readout">0.00 s</span></label>
+      <input id="scrub" type="range" min="0" max="2300" step="10" value="0" aria-label="Inspect animation timeline in milliseconds">
+    </div>
+    <div class="phase-nav" aria-label="Blueprint phase inspection">
+      <button type="button" data-seek="0">0 · First paint</button>
+      <button type="button" data-seek="0">1 · Quiet idle</button>
+      <button type="button" data-seek="0">2 · Visitor attention</button>
+      <button type="button" data-seek="45">3 · Contact</button>
+      <button type="button" data-seek="300">4 · One ring</button>
+      <button type="button" data-seek="700">5 · Deliberate lift</button>
+      <button type="button" data-seek="1200">6 · Counter ahead</button>
+      <button type="button" data-seek="1600">7 · Landing</button>
+      <button type="button" data-seek="2300">Finished home</button>
+    </div>
+    <details class="notes">
+      <summary>What this proof does and does not establish</summary>
+      <p>Walter's arrival now uses a 480 ms dissolve in his settled position, beginning as the counter finishes appearing. The comparison control restores the r055 Walter timing and small settle. Bell mechanics, one ring, guided lift, landing, room, homepage and total duration are unchanged. Reduced motion keeps the existing quick transition.</p>
+      <p>A literal marble-surface bridge was tried first in Void’s workspace. It read as a tall rising wall or floating shelf at phone and desktop sizes, so this proof uses the blueprint’s deliberate-lift alternative. That experiment was not published for owner selection.</p>
+      <p>The optional sound is a quiet prototype chime, off by default. The Get Walter and How it works controls display a preview notice; they are not connected to account, payment, calendar, support, or production routes. The actual website has not been modified.</p>
+    </details>
+  </section>
+  <dialog id="preview-dialog" aria-labelledby="dialog-title">
+    <h2 id="dialog-title">Motion proof boundary</h2>
+    <p id="dialog-copy">The next Walter page is outside this opening-animation proof.</p>
+    <button id="dialog-close" type="button">Back to the scene</button>
+  </dialog>
+  <script>(() => {
+  const stage=document.getElementById('stage');
+  const resonance=document.getElementById('resonance');
+  const ringWarmth=document.getElementById('ring-warmth');
+  const landingShadow=document.getElementById('landing-shadow');
+  const landingGlow=document.getElementById('landing-glow');
+  let ringOn=true,landingOn=true;
+  window.updateBellResponse=({t,m,bellSize,ring,counterP,reduced,gap})=>{
+    if(ringOn&&!reduced){
+      resonance.style.opacity=(ring*.78).toFixed(3);
+      resonance.style.transform='translate(-50%,-50%) scale('+(0.49+1.14*Math.min(1,Math.max(0,(t-150)/260))).toFixed(3)+')';
+      ringWarmth.style.left=m.startX.toFixed(2)+'px';
+      ringWarmth.style.top=(m.startBaseY+2).toFixed(2)+'px';
+      ringWarmth.style.width=(m.startSize*.86).toFixed(2)+'px';
+      ringWarmth.style.opacity=(ring*.46).toFixed(3);
+    }else ringWarmth.style.opacity='0';
+    if(landingOn&&!reduced){
+      const distance=Math.min(140,Math.max(0,gap));
+      landingShadow.style.width=(m.endSize*(.85+distance*.0016)).toFixed(2)+'px';
+      landingShadow.style.height=(10+distance*.046).toFixed(2)+'px';
+      landingShadow.style.filter='blur('+(4+distance*.065).toFixed(2)+'px)';
+      landingShadow.style.opacity=(counterP*Math.max(0,1-distance/170)).toFixed(3);
+      landingGlow.style.left=m.finalX.toFixed(2)+'px';
+      landingGlow.style.top=(m.finalBaseY+1).toFixed(2)+'px';
+      landingGlow.style.width=(m.endSize*.9).toFixed(2)+'px';
+      const contact=Math.max(0,1-distance/33);
+      const fade=1-Math.min(1,Math.max(0,(t-1750)/320));
+      landingGlow.style.opacity=(contact*fade*.33*counterP).toFixed(3);
+    }else{
+      landingShadow.style.height='';landingShadow.style.filter='';
+      landingGlow.style.opacity='0';
+    }
+  };
+  for(const [id,key,label] of [['ring-toggle','ringResponse','Ring response'],['landing-toggle','landingContact','Landing contact']]){
+    const button=document.getElementById(id);
+    button.addEventListener('click',()=>{
+      const on=stage.dataset[key]!=='on';stage.dataset[key]=on?'on':'off';
+      if(key==='ringResponse')ringOn=on;else landingOn=on;
+      button.setAttribute('aria-pressed',String(on));button.textContent=label+': '+(on?'on':'off');
+      const proof=window.walterBellProof;proof.renderAt(proof.state().playhead);
+    });
+  }
+  window.bellResponseState=()=>({ringOn,landingOn});
+})();
+
+(() => {
+  window.bellSteadyEnabled=true;
+  const button=document.getElementById('steady-toggle');
+  button.addEventListener('click',()=>{
+    window.bellSteadyEnabled=!window.bellSteadyEnabled;
+    button.setAttribute('aria-pressed',String(window.bellSteadyEnabled));
+    button.textContent='Steadier transition: '+(window.bellSteadyEnabled?'on':'off');
+    const proof=window.walterBellProof;
+    proof.renderAt(proof.state().playhead);
+  });
+})();
+
+(() => {
+  const stage=document.getElementById('stage');
+  const bell=document.getElementById('bell');
+  const knob=document.getElementById('knob-part');
+  const dome=document.getElementById('dome-part');
+  const toggle=document.getElementById('rig-toggle');
+  window.bellRigEnabled=true;
+  const pose=(stroke,weight)=>{
+    knob.setAttribute('transform',`translate(0 ${stroke.toFixed(2)})`);
+    dome.setAttribute('transform',`translate(0 ${weight.toFixed(2)})`);
+  };
+  window.updateBellRig=({t,reduced})=>{
+    if(!window.bellRigEnabled||reduced){pose(0,0);return;}
+    if(t<=150){const v=Math.sin(Math.PI*t/150);pose(20*v,2.7*v)}
+    else if(t<340){const v=Math.sin(Math.PI*(t-150)/190);pose(-2*v,-.55*v)}
+    else pose(0,0);
+  };
+  bell.addEventListener('pointerenter',()=>{if(window.bellRigEnabled&&stage.dataset.state==='idle')pose(4,.5)});
+  bell.addEventListener('pointerdown',()=>{if(window.bellRigEnabled&&stage.dataset.state==='idle')pose(18,2.4)});
+  bell.addEventListener('pointerup',()=>{if(stage.dataset.state==='idle')pose(4,.5)});
+  bell.addEventListener('pointercancel',()=>pose(0,0));
+  bell.addEventListener('pointerleave',()=>{if(stage.dataset.state==='idle')pose(0,0)});
+  bell.addEventListener('focus',()=>{if(window.bellRigEnabled&&stage.dataset.state==='idle')pose(4,.5)});
+  bell.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&window.bellRigEnabled&&stage.dataset.state==='idle')pose(18,2.4)});
+  bell.addEventListener('keyup',()=>{if(stage.dataset.state==='idle')pose(4,.5)});
+  bell.addEventListener('blur',()=>{if(stage.dataset.state==='idle')pose(0,0)});
+  toggle.addEventListener('click',()=>{
+    window.bellRigEnabled=!window.bellRigEnabled;
+    stage.dataset.rig=window.bellRigEnabled?'on':'off';
+    toggle.setAttribute('aria-pressed',String(window.bellRigEnabled));
+    toggle.textContent='Articulated press: '+(window.bellRigEnabled?'on':'off');
+    window.walterBellProof.renderAt(window.walterBellProof.state().playhead);
+  });
+  window.bellRigProof={pose,enabled:()=>window.bellRigEnabled};
+})();
+
+(function(){
+  "use strict";
+  const DURATION=2300;
+  const $=id=>document.getElementById(id);
+  const stage=$("stage"),bell=$("bell"),home=$("home"),heading=$("home-title");
+  const room=$("room"),sunbeam=$("sunbeam"),leaf=$("leaf-shadow"),walt=$("walt");
+  const entryWall=$("entry-wall"),entryLight=$("entry-light"),entryFloor=$("entry-floor"),entryForeground=$("entry-foreground"),entryInvite=$("entry-invite"),roomHaze=$("room-haze"),nearShade=$("near-shade");
+  const counter=$("counter"),foliage=$("foliage"),entryShadow=$("entry-shadow"),landingShadow=$("landing-shadow"),landingGlow=$("landing-glow"),resonance=$("resonance");
+  const guideAura=$("guide-aura");
+  const reflection=$("contact-reflection"),glint=bell.querySelector('.bell-glint');
+  const homeLayers=[home.querySelector('.site-header'),home.querySelector('.hero-copy'),home.querySelector('.hero-actions'),home.querySelector('.counter-caption')];
+  const polishToggle=$("polish-toggle"),dissolveToggle=$("dissolve-toggle");
+  let polishEnabled=true,dissolveEnabled=true;
+  const scrub=$("scrub"),readout=$("time-readout"),status=$("status"),dialog=$("preview-dialog"),dialogCopy=$("dialog-copy");
+  const replayButton=$("replay"),pauseButton=$("play-pause"),finishButton=$("finish"),soundButton=$("sound"),reduceButton=$("reduce"),depthButton=$("depth-toggle"),guidedToggle=$("guided-toggle"),softToggle=$("soft-toggle");
+  const phaseButtons=[...document.querySelectorAll("[data-seek]")];
+  const media=window.matchMedia("(prefers-reduced-motion: reduce)");
+  let mode="idle",frame=0,origin=0,playhead=0,paused=false,soundEnabled=false,forceReduced=false;
+  let cancelTime=-Infinity,ringCount=0,depthEnabled=true,guidedLiftEnabled=true,softRevealEnabled=true;
+  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+  const smooth=(a,b,v)=>{const x=clamp((v-a)/(b-a),0,1);return x*x*(3-2*x)};
+  const silk=(a,b,v)=>{const x=clamp((v-a)/(b-a),0,1);return x*x*x*(x*(x*6-15)+10)};
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  function isReduced(){return forceReduced||media.matches}
+  function metrics(){
+    const w=stage.clientWidth,h=stage.clientHeight,mobile=w<=800,compact=h<500&&w>600;
+    const counterHeight=mobile?184:151;
+    const startSize=compact?128:mobile?clamp(w*.43,150,176):clamp(w*.178,210,236);
+    const endSize=mobile?78:105;
+    return {w,h,mobile,counterHeight,startSize,endSize,
+      startX:w*.5,startBaseY:h*(compact?.65:mobile?.65:.68),
+      finalX:w*(mobile?.85:.89),finalBaseY:h-counterHeight+7};
+  }
+  function pos(el,x,y){el.style.left=x.toFixed(2)+"px";el.style.top=y.toFixed(2)+"px"}
+  function setOpacity(el,value){el.style.opacity=clamp(value,0,1).toFixed(3)}
+  function renderAt(input){
+    const t=clamp(input,0,DURATION),m=metrics(),reduced=isReduced();
+    playhead=t;readout.textContent=(t/1000).toFixed(2)+" s";scrub.value=String(Math.round(t));
+    const guided=guidedLiftEnabled&&!reduced;
+    const polish=polishEnabled&&guided;
+    const moveX=reduced?(t>80?1:0):smooth(guided?850:550,guided?1450:1500,t);
+    const moveY=reduced?(t>80?1:0):smooth(guided?700:550,guided?1350:1500,t);
+    const roomP=reduced?smooth(0,260,t):polish?silk(450,1220,t):smooth(guided?480:660,guided?1160:1260,t);
+    const counterP=reduced?smooth(0,260,t):polish?silk(550,1140,t):smooth(guided?550:850,guided?1100:1490,t);
+    const characterP=reduced?smooth(0,260,t):smooth(guided?1300:1320,guided?1660:1900,t);
+    const copyP=reduced?smooth(0,260,t):smooth(guided?1600:1680,guided?2050:2200,t);
+    const entryP=reduced?1-smooth(0,260,t):polish?1-silk(480,1080,t):1-smooth(guided?500:580,guided?1020:1220,t);
+    const bellSize=lerp(m.startSize,m.endSize,moveY);
+    const baseY=lerp(m.startBaseY,m.finalBaseY,moveY);
+    let rise=0,tilt=0,pressScale=1,excitement=0;
+    if(!reduced){
+      rise=guided?11*smooth(700,820,t)*(1-smooth(1050,1350,t)):26*smooth(260,500,t)*(1-smooth(1180,1850,t));
+      const dance=smooth(480,620,t)*(1-smooth(1110,1540,t));
+      const envelope=smooth(470,620,t)*(1-smooth(1170,1560,t));
+      tilt=window.bellSteadyEnabled?(2.5*Math.sin(Math.PI*smooth(480,1100,t))*(1-smooth(1100,1500,t))):(Math.sin((t-480)/115)*5.8+Math.sin((t-480)/67)*.8)*dance;
+      excitement=guided?0:(window.bellSteadyEnabled?(2.4*smooth(480,720,t)*(1-smooth(1160,1520,t))):Math.sin((t-490)/93)*5.5*envelope);
+      if(t<=150)pressScale=1-.07*Math.sin(Math.PI*t/150);
+      else if(t<340)pressScale=1+.025*Math.sin(Math.PI*(t-150)/190);
+    }
+    const x=lerp(m.startX,m.finalX,moveX);
+    const y=baseY-bellSize*.445-rise-excitement;
+    pos(bell,x,y);
+    bell.style.width=bellSize.toFixed(2)+"px";
+    bell.style.height=(bellSize*.89).toFixed(2)+"px";
+    bell.style.transform="translate(-50%,-50%) rotate("+tilt.toFixed(2)+"deg) scaleY("+(window.bellRigEnabled?1:pressScale).toFixed(3)+")";
+    window.updateBellRig({t,reduced});
+    bell.style.filter="drop-shadow(0 "+(4+rise*.16).toFixed(1)+"px "+(2+rise*.25).toFixed(1)+"px #08271e2e)";
+    bell.style.opacity=reduced&&t>0?(1-smooth(20,85,t)+smooth(180,260,t)).toFixed(3):"1";
+    const ringIn=smooth(140,210,t),ringOut=1-smooth(255,430,t);
+    const ring=ringIn*ringOut;
+    pos(resonance,x,y-bellSize*.06);
+    resonance.style.width=(bellSize*.83).toFixed(2)+"px";
+    resonance.style.height=(bellSize*.83).toFixed(2)+"px";
+    resonance.style.opacity=reduced?"0":(ring*.62).toFixed(3);
+    resonance.style.transform="translate(-50%,-50%) scale("+(0.54+1.08*smooth(150,410,t)).toFixed(3)+")";
+    pos(entryShadow,m.startX,m.startBaseY+3);
+    entryShadow.style.width=(m.startSize*(guided?.71+rise*.006:.71)).toFixed(2)+"px";
+    entryShadow.style.filter=guided&&t>=700?'blur('+(5+rise*.35).toFixed(2)+'px)':'';
+    entryShadow.style.backgroundColor=guided&&t>=700?'#3f35264d':'';
+    if(polish){entryShadow.style.filter='blur('+(10+rise*.25).toFixed(2)+'px)';entryShadow.style.backgroundColor='#3f352629'}
+    setOpacity(entryShadow,guided?1-smooth(800,1150,t):(1-smooth(980,1510,t))*(1-rise*.016));
+    pos(landingShadow,m.finalX,m.finalBaseY+1);
+    landingShadow.style.width=(m.endSize*.85).toFixed(2)+"px";
+    setOpacity(landingShadow,counterP*smooth(1230,1710,t));
+    window.updateBellResponse({t,m,bellSize,ring,counterP,reduced,gap:m.finalBaseY-baseY+rise+excitement});
+    if(guided){
+      const counterContactY=m.finalBaseY+(1-counterP)*m.counterHeight*1.04;
+      const gap=Math.max(0,counterContactY-baseY+rise);
+      pos(landingShadow,x,counterContactY+1);
+      landingShadow.style.width=(m.endSize*(.85+gap*.0015)).toFixed(2)+'px';
+      landingShadow.style.height=(10+gap*.045).toFixed(2)+'px';
+      landingShadow.style.filter='blur('+(4+gap*.09).toFixed(2)+'px)';
+      setOpacity(landingShadow,counterP*smooth(850,1100,t)*Math.max(0,1-gap/155));
+      pos(landingGlow,x,counterContactY+1);
+      landingGlow.style.width=(m.endSize*.9).toFixed(2)+'px';
+      setOpacity(landingGlow,smooth(1280,1360,t)*(1-smooth(1460,1620,t))*.3);
+      pos(guideAura,x,baseY-rise+5);
+      guideAura.style.width=(bellSize*.84).toFixed(2)+'px';
+      guideAura.style.height=(bellSize*.17).toFixed(2)+'px';
+      setOpacity(guideAura,smooth(700,820,t)*(1-smooth(1200,1480,t))*.68);
+    }else guideAura.style.opacity='0';
+    // Two small material responses, tied to the existing journey and extinguished before rest.
+    pos(reflection,x,m.finalBaseY+7);
+    reflection.style.width=(bellSize*.68).toFixed(2)+'px';
+    setOpacity(reflection,polish?silk(1300,1470,t)*(1-silk(1680,2070,t))*.16:0);
+    if(polish&&t>0){
+      glint.style.opacity=(silk(650,900,t)*(1-silk(1160,1530,t))*.09).toFixed(3);
+      glint.style.transform='translateX('+lerp(-9,9,silk(650,1530,t)).toFixed(2)+'px)';
+    }else{glint.style.opacity='';glint.style.transform=''}
+    setOpacity(room,roomP);
+    room.style.transform="scale("+(1.018-.018*roomP).toFixed(4)+")";
+    setOpacity(entryWall,depthEnabled?entryP:0);
+    setOpacity(entryLight,depthEnabled?entryP*.52:0);
+    entryLight.style.transform="translateX("+(8*(1-entryP)).toFixed(2)+"px)";
+    setOpacity(entryFloor,depthEnabled?entryP:0);
+    setOpacity(entryForeground,depthEnabled?entryP*.4:0);
+    setOpacity(entryInvite,1-(reduced?smooth(0,100,t):smooth(0,390,t)));
+    setOpacity(sunbeam,roomP*.65);
+    setOpacity(leaf,roomP*.28);
+    setOpacity(roomHaze,depthEnabled?roomP*.65:0);
+    if(polish&&depthEnabled)setOpacity(roomHaze,roomP*(.65+.1*silk(540,820,t)*(1-silk(1020,1490,t))));
+    roomHaze.style.transform="translateX("+((1-roomP)*-18).toFixed(2)+"px)";
+    setOpacity(nearShade,depthEnabled?roomP*.46:0);
+    nearShade.style.transform="translateX("+((1-roomP)*12).toFixed(2)+"px)";
+    setOpacity(foliage,roomP*.68);
+    setOpacity(counter,reduced?counterP:polish?silk(550,680,t):(counterP>.015?1:0));
+    counter.style.transform="translateY("+((1-counterP)*104).toFixed(2)+"%)";
+    if(softRevealEnabled&&guided){
+      // A brief optical blend removes the one-frame switch without a lingering ghost.
+      // Let Walter appear in his settled position over the established counter.
+      // The comparison switch keeps the exact r055 timing and small settle.
+      const reveal=dissolveEnabled&&polish?silk(1140,1620,t):(polish?silk(1240,1420,t):smooth(1300,1420,t));
+      const settle=polish?silk(1220,1670,t):smooth(1280,1600,t);
+      walt.style.maskImage="";walt.style.webkitMaskImage="";
+      setOpacity(walt,reveal);
+      walt.style.transform=dissolveEnabled&&polish?"translateY(0px)":"translateY("+(t<=(polish?1240:1300)?(m.mobile?250:360):(18*(1-settle))).toFixed(2)+"px)";
+      walt.style.filter="";
+    }else{
+      walt.style.maskImage="";walt.style.webkitMaskImage="";
+      walt.style.filter="";
+      setOpacity(walt,reduced?characterP:(guided?(t>=1340?1:0):(characterP>.015?1:0)));
+      walt.style.transform=reduced?"none":"translateY("+((1-characterP)*(guided&&t>1300?18:(m.mobile?250:360))).toFixed(2)+"px)";
+    }
+    home.style.visibility=copyP>.001?"visible":"hidden";
+    setOpacity(home,copyP);
+    if(polish){
+      home.style.visibility=t>1480?'visible':'hidden';setOpacity(home,1);
+      const ranges=[[1480,1880,-4],[1560,2060,6],[1700,2160,3],[1760,2200,0]];
+      homeLayers.forEach((el,i)=>{const [a,b,travel]=ranges[i],p=silk(a,b,t);setOpacity(el,p);el.style.transform='translateY('+((1-p)*travel).toFixed(2)+'px)'});
+    }else homeLayers.forEach(el=>{el.style.opacity='';el.style.transform=''});
+    const revealed=t>=DURATION;
+    stage.dataset.state=revealed?"ready":(mode==="idle"&&t===0?"idle":"playing");
+    home.inert=!revealed;
+    home.setAttribute("aria-hidden",revealed?"false":"true");
+    bell.setAttribute("aria-label",revealed?"Open Walter help preview":"Ring the service bell to enter Walter");
+    bell.disabled=mode==="playing"||mode==="paused";
+    phaseButtons.forEach((b,i)=>{const value=Number(b.dataset.seek);const active=readout.textContent===(value/1000).toFixed(2)+" s";b.setAttribute("aria-current",active?"true":"false")});
+  }
+  function stopFrame(){if(frame){cancelAnimationFrame(frame);frame=0}}
+  function complete(shouldFocus){
+    stopFrame();mode="ready";paused=false;renderAt(DURATION);
+    pauseButton.textContent="Pause";status.textContent="Walter is ready. The homepage is open.";
+    if(shouldFocus)heading.focus({preventScroll:true});
+  }
+  function tick(now){
+    if(mode!=="playing"||paused)return;
+    const elapsed=now-origin;
+    if(isReduced()){
+      renderAt(Math.min(260,elapsed));
+      if(elapsed>=260){complete(true);return}
+    }else{
+      renderAt(elapsed);
+      if(playhead>=DURATION){complete(true);return}
+    }
+    frame=requestAnimationFrame(tick);
+  }
+  function sound(){
+    if(!soundEnabled||isReduced())return;
+    try{
+      const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+      const context=new C(),now=context.currentTime;
+      const notes=[[932.3,.025,.39],[1398.5,.014,.31],[1864.6,.006,.2]];
+      notes.forEach(([frequency,peak,length])=>{
+        const oscillator=context.createOscillator(),gain=context.createGain();
+        oscillator.type="sine";oscillator.frequency.setValueAtTime(frequency,now);
+        gain.gain.setValueAtTime(.0001,now);
+        gain.gain.exponentialRampToValueAtTime(peak,now+.012);
+        gain.gain.exponentialRampToValueAtTime(.0001,now+length);
+        oscillator.connect(gain).connect(context.destination);
+        oscillator.start(now);oscillator.stop(now+length+.02);
+      });
+      setTimeout(()=>context.close().catch(()=>{}),800);
+      ringCount++;
+    }catch(error){/* Silent fallback: no visual stall. */}
+  }
+  function start(){
+    if(mode!=="idle")return;
+    if(performance.now()-cancelTime<450)return;
+    mode="playing";bell.classList.remove("pressing");renderAt(0);
+    status.textContent="The bell rings and the room begins to open.";
+    sound();origin=performance.now();frame=requestAnimationFrame(tick);
+  }
+  bell.addEventListener("pointerdown",()=>{if(mode==="idle")bell.classList.add("pressing")});
+  bell.addEventListener("pointerup",()=>bell.classList.remove("pressing"));
+  bell.addEventListener("pointerleave",()=>bell.classList.remove("pressing"));
+  bell.addEventListener("pointercancel",()=>{bell.classList.remove("pressing");cancelTime=performance.now()});
+  bell.addEventListener("keydown",e=>{
+    if(e.key!==" "&&e.key!=="Enter")return;
+    e.preventDefault();
+    if(mode==="idle")bell.classList.add("pressing");
+    if(e.key==="Enter")start();
+  });
+  bell.addEventListener("keyup",e=>{
+    if(e.key===" "){e.preventDefault();if(mode==="idle")start()}
+    bell.classList.remove("pressing");
+  });
+  bell.addEventListener("blur",()=>bell.classList.remove("pressing"));
+  bell.addEventListener("click",()=>{if(mode==="ready"){dialogCopy.textContent="The settled bell opens help in the existing site. This motion proof stops at the homepage.";dialog.showModal();return}start()});
+  replayButton.addEventListener("click",()=>{
+    stopFrame();mode="idle";paused=false;origin=0;playhead=0;bell.disabled=false;bell.classList.remove("pressing");
+    pauseButton.textContent="Pause";status.textContent="Ring the service bell to enter Walter.";
+    renderAt(0);stage.scrollIntoView({block:"start",behavior:isReduced()?"instant":"smooth"});bell.focus({preventScroll:true});
+  });
+  pauseButton.addEventListener("click",()=>{
+    if(mode==="playing"&&!paused){paused=true;mode="paused";stopFrame();pauseButton.textContent="Resume";status.textContent="Animation paused."}
+    else if(mode==="paused"){paused=false;mode="playing";origin=performance.now()-playhead;pauseButton.textContent="Pause";frame=requestAnimationFrame(tick)}
+  });
+  finishButton.addEventListener("click",()=>{complete(true);stage.scrollIntoView({block:"start",behavior:"instant"})});
+  soundButton.addEventListener("click",()=>{soundEnabled=!soundEnabled;soundButton.setAttribute("aria-pressed",String(soundEnabled));soundButton.textContent="Sound: "+(soundEnabled?"on":"off")});
+  reduceButton.addEventListener("click",()=>{forceReduced=!forceReduced;document.documentElement.classList.toggle("force-reduced",forceReduced);reduceButton.setAttribute("aria-pressed",String(forceReduced));reduceButton.textContent=forceReduced?"Reduced motion: on":"Reduced motion: system";renderAt(playhead)});
+  guidedToggle.addEventListener("click",()=>{guidedLiftEnabled=!guidedLiftEnabled;stage.dataset.guidedLift=guidedLiftEnabled?'on':'off';guidedToggle.setAttribute('aria-pressed',String(guidedLiftEnabled));guidedToggle.textContent='Guided lift: '+(guidedLiftEnabled?'on':'off');renderAt(playhead)});
+  softToggle.addEventListener("click",()=>{softRevealEnabled=!softRevealEnabled;stage.dataset.softReveal=softRevealEnabled?'on':'off';softToggle.setAttribute('aria-pressed',String(softRevealEnabled));softToggle.textContent='Soft reveal: '+(softRevealEnabled?'on':'off');renderAt(playhead)});
+  polishToggle.addEventListener('click',()=>{polishEnabled=!polishEnabled;stage.dataset.polish=polishEnabled?'on':'off';polishToggle.setAttribute('aria-pressed',String(polishEnabled));polishToggle.textContent='Full polish: '+(polishEnabled?'on':'off');renderAt(playhead)});
+  dissolveToggle.addEventListener('click',()=>{dissolveEnabled=!dissolveEnabled;stage.dataset.dissolve=dissolveEnabled?'on':'off';dissolveToggle.setAttribute('aria-pressed',String(dissolveEnabled));dissolveToggle.textContent='Walter dissolve: '+(dissolveEnabled?'on':'off');renderAt(playhead)});
+  depthButton.addEventListener("click",()=>{depthEnabled=!depthEnabled;depthButton.setAttribute("aria-pressed",String(depthEnabled));depthButton.textContent="Depth layers: "+(depthEnabled?"on":"off");renderAt(playhead)});
+  scrub.addEventListener("input",()=>{stopFrame();mode="scrubbing";paused=false;pauseButton.textContent="Pause";renderAt(Number(scrub.value));if(Number(scrub.value)===0){mode="idle";renderAt(0)}else if(Number(scrub.value)>=DURATION){mode="ready";renderAt(DURATION)}});
+  phaseButtons.forEach(b=>b.addEventListener("click",()=>{stopFrame();const t=Number(b.dataset.seek);mode=t===0?"idle":t>=DURATION?"ready":"scrubbing";renderAt(t);stage.scrollIntoView({block:"start",behavior:"instant"})}));
+  [...document.querySelectorAll("[data-preview-action]")].forEach(b=>b.addEventListener("click",()=>{
+    dialogCopy.textContent=b.dataset.previewAction==="get"?"Get Walter opens the public Your details page in the real site. Account, payment and calendar flows are outside this animation proof.":"How it works remains on the public homepage in the real site. This animation proof ends at the welcome scene.";
+    dialog.showModal();
+  }));
+  $("dialog-close").addEventListener("click",()=>dialog.close());
+  window.addEventListener("resize",()=>renderAt(playhead));
+  media.addEventListener?.("change",()=>renderAt(playhead));
+  for(const id of ["bell","room","walt","counter"]) {
+    const el=$(id);if(el instanceof HTMLImageElement)el.addEventListener("error",()=>{status.textContent="An image failed to load; the readable homepage is available.";complete(false)});
+  }
+  document.documentElement.classList.remove("force-reduced");
+  home.inert=true;home.setAttribute("aria-hidden","true");
+  window.__bellBooted=true;clearTimeout(window.__bellBootWatch);
+  renderAt(0);
+  window.walterBellProof={
+    renderAt,reset:()=>replayButton.click(),finish:()=>finishButton.click(),
+    state:()=>({mode,playhead,ringCount,soundEnabled,reduced:isReduced(),depthEnabled,guidedLiftEnabled,counterY:getComputedStyle(counter).transform,homeInert:home.inert,stageState:stage.dataset.state}),
+    setReduced:value=>{forceReduced=!!value;document.documentElement.classList.toggle("force-reduced",forceReduced);renderAt(playhead)}
+  };
+})();
+</script>
+<script>
+(()=>{const stage=document.getElementById('stage');let old='';new MutationObserver(()=>{const now=stage.dataset.state;if(now===old)return;old=now;if(now==='playing')parent.postMessage({type:'walter-intro-start'},'*');if(now==='ready')parent.postMessage({type:'walter-intro-ready'},'*')}).observe(stage,{attributes:true,attributeFilter:['data-state']});window.addEventListener('message',e=>{if(e.data?.type==='walter-reset')window.walterBellProof?.reset()});})();
+</script><style>.stage.dissolve-bell #bell,.stage.dissolve-bell #entry-shadow{opacity:0!important;transition:opacity .46s ease!important}@media(prefers-reduced-motion:reduce){.stage.dissolve-bell #bell,.stage.dissolve-bell #entry-shadow{transition:none!important}}</style><script>
+window.addEventListener('message',e=>{if(e.data?.type==='walter-freeze'){const p=window.walterBellProof;if(p?.state().mode==='playing')document.getElementById('play-pause').click();p?.renderAt(390)}if(e.data?.type==='walter-bell-dissolve')document.getElementById('stage').classList.add('dissolve-bell');if(e.data?.type==='walter-reset')document.getElementById('stage').classList.remove('dissolve-bell')});
+</script></body>
+</html>
